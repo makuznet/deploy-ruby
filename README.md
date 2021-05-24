@@ -75,44 +75,29 @@ unicorn -c /home/ruby/blog/config/unicorn.rb -D
 ```bash
 \curl -sSL https://get.rvm.io | bash -s stable
 ```
-
 ### Letsencrypt
 ```bash
 sudo apt -y install letsencrypt
-
+```
 # getting an ssl certificate
+```bash
 letsencrypt certonly --webroot -w /var/www/html -d makuznet-at-gmail-com-uni.devops.rebrain.srwx.net -m makuznet@gmail.com --agree-tos
-
+```
 # backing up /etc/letsencrypt
+```bash
 scp -r root@makuznet-at-gmail-com-uni.devops.rebrain.srwx.net:/etc/letsencrypt ~/Documents/rebrain/deploy-js/
-
-
-
-
-
-
-
-
-
-
-
-
+```
 ## Acknowledgments
 This repo was inspired by [rebrainme.com](https://rebrainme.com) team
 
 ## See Also
--[rvm — Ruby Version Manager](https://rvm.io)
--[Changing sqlite to PostgreSQL in ruby on rails](https://stackoverflow.com/questions/50311186/changing-sqlite-to-postgresql-in-ruby-on-rails)
--[Peer authentication failed for user “postgres”](https://stackoverflow.com/questions/18664074/getting-error-peer-authentication-failed-for-user-postgres-when-trying-to-ge)
--[Rails bundle install production only](https://stackoverflow.com/questions/10912614/rails-bundle-install-production-only)
--[LoadError: Could not load the 'listen' gem (Rails 5)](https://stackoverflow.com/questions/38663706/loaderror-could-not-load-the-listen-gem-rails-5)
--[Unicorn config files examples](https://yhbt.net/unicorn/examples/)
--[Unicorn systemd service](https://www.ralfebert.de/tutorials/rails-deployment/)
--[]()
--[]()
--[]()
--[]()
--[]()
+-[rvm — Ruby Version Manager](https://rvm.io)  
+-[Changing sqlite to PostgreSQL in ruby on rails](https://stackoverflow.com/questions/50311186/changing-sqlite-to-postgresql-in-ruby-on-rails)  
+-[Peer authentication failed for user “postgres”](https://stackoverflow.com/questions/18664074/getting-error-peer-authentication-failed-for-user-postgres-when-trying-to-ge)  
+-[Rails bundle install production only](https://stackoverflow.com/questions/10912614/rails-bundle-install-production-only)  
+-[LoadError: Could not load the 'listen' gem (Rails 5)](https://stackoverflow.com/questions/38663706/loaderror-could-not-load-the-listen-gem-rails-5)  
+-[Unicorn config files examples](https://yhbt.net/unicorn/examples/)  
+-[Unicorn systemd service](https://www.ralfebert.de/tutorials/rails-deployment/)  
 
 ## License
 Follow all involved parties licenses terms and conditions.
