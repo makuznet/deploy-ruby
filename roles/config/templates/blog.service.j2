@@ -1,0 +1,19 @@
+[Unit]
+Description=blog service
+After=network.target
+
+[Service]
+Type=forking
+User=ruby
+WorkingDirectory=/home/ruby/blog
+SyslogIdentifier=blog
+
+ExecStart=/bin/bash -l -c '/home/ruby/.rvm/bin/rvm in /home/ruby/blog/ do bundle exec unicorn -c /home/ruby/blog/config/unicorn.rb -D'
+# stop by sending only the main process a SIGQUIT signal
+KillMode=process
+KillSignal=SIGQUIT
+# Enable reloading unicorn via HUP signal
+ExecReload=/bin/kill -HUP $MAINPID
+
+[Install]
+WantedBy=multi-user.target

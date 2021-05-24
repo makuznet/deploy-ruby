@@ -1,0 +1,16 @@
+---
+- name: reload_nginx
+  service:
+    name: nginx
+    state: reloaded
+
+- name: reload_postgresql
+  service:
+    name: postgresql
+    state: reloaded    
+
+- name: blog_service
+  service:
+    name: "blog.service"
+    state: started
+    enabled: true

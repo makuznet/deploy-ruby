@@ -9,29 +9,25 @@
         dest_file: "/etc/nginx/nginx.conf",
       }
     - {
-        src_file: "unicorn.rb.j2",
+        src_file: "minimum.rb.j2",
         dest_file: "/home/ruby/blog/config/unicorn.rb",
       }  
+    - {
+        src_file: "blog.service.j2",
+        dest_file: "/etc/systemd/system/blog.service",
+      }  
+    - {
+        src_file: "database.yml.j2",
+        dest_file: "/home/ruby/blog/config/database.yml",
+      }   
   notify:
     - reload_nginx
+    - reload_postgresql
+    - blog_service
 
 - name: remove simlink default
   file:
     path: "/etc/nginx/sites-enabled/default"
     state: absent
   notify:
-    - reload_nginx    
-
-# - name: Copy unicorn init script
-#   copy:
-#     src: unicorn_app
-#     dest: "/etc/init.d/unicorn_app" 
-#     mode: '755'
-
-    
-
-# - name: Create unicorn socket file
-#   copy:
-#     src: unicorn.socket
-#     dest: "/etc/systemd/system/unicorn.socket" 
-
+    - reload_nginx   

@@ -1,0 +1,5 @@
+worker_processes 2
+listen "/home/ruby/blog/shared/sockets/unicorn.sock", :backlog => 64
+listen 8080, :tcp_nopush => true
+timeout 30
+pid "/home/ruby/blog/shared/pids/unicorn.pid"
