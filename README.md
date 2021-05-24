@@ -1,5 +1,5 @@
-# Deploy Ruby app
-> This ap is a Ruby app deployment report
+# Deploying Ruby app
+> This repo is a Ruby app deployment report
 
 ## Usage  
 ### List of commands
