@@ -1,0 +1,11 @@
+---
+- name: reload_nginx
+  service:
+    name: nginx
+    state: reloaded
+
+- name: Run n enable unicorn.service
+  service:
+    name: "unicorn"
+    state: started
+    enabled: true

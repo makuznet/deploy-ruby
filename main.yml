@@ -1,0 +1,6 @@
+---
+- name: copying nginx.conf file
+  hosts: web
+  roles:
+    - role: nginx
+      tags: nginx

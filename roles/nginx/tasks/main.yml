@@ -1,0 +1,37 @@
+---
+- name: conveying files via template
+  template:
+    src: "{{item.src_file}}"
+    dest: "{{item.dest_file}}"
+  loop:
+    - {
+        src_file: "nginx.conf.j2",
+        dest_file: "/etc/nginx/nginx.conf",
+      }
+    - {
+        src_file: "unicorn.rb.j2",
+        dest_file: "/home/ruby/blog/config/unicorn.rb",
+      }  
+  notify:
+    - reload_nginx
+
+- name: remove simlink default
+  file:
+    path: "/etc/nginx/sites-enabled/default"
+    state: absent
+  notify:
+    - reload_nginx    
+
+# - name: Copy unicorn init script
+#   copy:
+#     src: unicorn_app
+#     dest: "/etc/init.d/unicorn_app" 
+#     mode: '755'
+
+    
+
+# - name: Create unicorn socket file
+#   copy:
+#     src: unicorn.socket
+#     dest: "/etc/systemd/system/unicorn.socket" 
+
