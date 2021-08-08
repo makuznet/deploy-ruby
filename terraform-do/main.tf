@@ -85,11 +85,11 @@ resource "null_resource" "known_hosts" {
   depends_on = [digitalocean_droplet.t02, time_sleep.wait_30_seconds, local_file.inventory]
 }
 
-# resource "null_resource" "ansible" {
+resource "null_resource" "ansible" {
 
-#   provisioner "local-exec" {
-#     command = "ansible-playbook -i inventory.yml main.yml"
-#   }
+  provisioner "local-exec" {
+    command = "cd ..; ansible-playbook -i terraform-do/inventory.yml playbooks/main.yml"
+  }
 
-#   depends_on = [local_file.inventory, null_resource.known_hosts]
-# }
+  depends_on = [local_file.inventory, null_resource.known_hosts]
+}
