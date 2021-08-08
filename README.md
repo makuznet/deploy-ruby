@@ -80,11 +80,11 @@ unicorn -c /home/ruby/blog/config/unicorn.rb -D
 ```bash
 sudo apt -y install letsencrypt
 ```
-# getting an ssl certificate
+#### getting an ssl certificate
 ```bash
 letsencrypt certonly --webroot -w /var/www/html -d makuznet-at-gmail-com-uni.devops.rebrain.srwx.net -m makuznet@gmail.com --agree-tos
 ```
-# backing up /etc/letsencrypt
+#### backing up /etc/letsencrypt
 ```bash
 scp -r root@makuznet-at-gmail-com-uni.devops.rebrain.srwx.net:/etc/letsencrypt ~/Documents/rebrain/deploy-js/
 ```
