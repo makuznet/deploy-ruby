@@ -4,6 +4,7 @@
 ## Usage  
 ### List of commands
 ```
+cd terraform-do
 terraform init
 terraform plan
 terraform apply --auto-approve
@@ -58,7 +59,7 @@ ssh makuznet-at-gmail-com-ruby.devops.rebrain.srwx.net -l root
         bundle exec rails server # check that the app works
         sudo apt -y install nginx letsencrypt
         letsencrypt certonly --webroot -w /var/www/html -d makuznet-at-gmail-com-uni.devops.rebrain.srwx.net -m makuznet@gmail.com --agree-tos
-ansible-playbook -i inventory.yml main.yml # copying config and service files        
+ansible-playbook -i terraform-do/inventory.yml playbooks/main.yml # copying config and service files        
 ```
 ### Stop Unicorn processes manually
 ```bash
